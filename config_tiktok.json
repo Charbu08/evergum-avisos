@@ -1,0 +1,20 @@
+{
+  "webhook_env": "WEBHOOK_TIKTOK",
+  "feeds": [
+    {
+      "name": "Evergum Plus",
+      "platform": "tiktok",
+      "url": "https://rss.app/feeds/cqN4sCXzHnVFUGr2.xml"
+    },
+    {
+      "name": "Evergum Covers",
+      "platform": "tiktok",
+      "url": "https://rss.app/feeds/thMqU5QqrPJ9zcRU.xml"
+    },
+    {
+      "name": "Evergum Rivals",
+      "platform": "tiktok",
+      "url": "https://rss.app/feeds/7xzJ5qCQnvVADxcD.xml"
+    }
+  ]
+}

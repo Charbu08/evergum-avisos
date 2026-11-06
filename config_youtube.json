@@ -1,0 +1,10 @@
+{
+  "webhook_env": "WEBHOOK_YOUTUBE",
+  "feeds": [
+    {
+      "name": "Evergum Covers",
+      "platform": "youtube",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrXHCWbeCx7-KamaXfgNOZA"
+    }
+  ]
+}

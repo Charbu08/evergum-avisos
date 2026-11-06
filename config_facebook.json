@@ -1,0 +1,10 @@
+{
+  "webhook_env": "WEBHOOK_FACEBOOK",
+  "feeds": [
+    {
+      "name": "Evergum",
+      "platform": "facebook",
+      "url": "https://rss.app/feeds/HczOQ3vTKNslLQKD.xml"
+    }
+  ]
+}

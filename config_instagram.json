@@ -1,0 +1,10 @@
+{
+  "webhook_env": "WEBHOOK_INSTAGRAM",
+  "feeds": [
+    {
+      "name": "Evergum08",
+      "platform": "instagram",
+      "url": "https://rss.app/feeds/sPEAOWk2aeWa2ccm.xml"
+    }
+  ]
+}
