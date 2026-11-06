@@ -1,0 +1,49 @@
+name: Avisos a Discord
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # cada 10 min (GitHub puede retrasarlo unos minutos)
+  workflow_dispatch:          # permite ejecutarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: write             # necesario para guardar el estado (*.seen.json)
+
+concurrency:
+  group: avisos
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Revisar redes y avisar a Discord
+        env:
+          WEBHOOK_TIKTOK: ${{ secrets.WEBHOOK_TIKTOK }}
+          WEBHOOK_INSTAGRAM: ${{ secrets.WEBHOOK_INSTAGRAM }}
+          WEBHOOK_FACEBOOK: ${{ secrets.WEBHOOK_FACEBOOK }}
+          WEBHOOK_YOUTUBE: ${{ secrets.WEBHOOK_YOUTUBE }}
+        run: |
+          for red in tiktok instagram facebook youtube; do
+            echo "=== $red ==="
+            python monitor.py "config_${red}.json" --once || echo "[!] Falló $red"
+          done
+
+      - name: Guardar estado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Sin cambios de estado."
+          else
+            git commit -m "Actualizar estado"
+            git pull --rebase
+            git push
+          fi
