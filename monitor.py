@@ -87,7 +87,7 @@ def send_discord(webhook, feed, entry):
     platform = feed.get("platform", "").lower()
     emoji = EMOJIS.get(platform, "🔔")
     payload = {
-            "content": f"ʚ𖦹ɞ⠀﹒ׅ⠀「⠀⠀¡Evergum_08 subió un video﹗⠀𓏸  <@&1490661130413281372>   <:PAT:1485496635193819146>  \n{entry['link']}",
+            "content": f"ʚ𖦹ɞ⠀﹒ׅ⠀「⠀⠀¡Evergum_08 subió un video﹗⠀𓏸  <@&1490661130413281372>   <a:BARK:1398195465564065872>   \n{entry['link']}",
         "embeds": [
             {
                 "title": (entry["title"] or "Nueva publicación")[:250],
