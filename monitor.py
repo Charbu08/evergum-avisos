@@ -75,8 +75,13 @@ def fetch_entries(url):
                 data["id"] = (child.text or "").strip()
             elif name == "title":
                 data["title"] = (child.text or "").strip()
-            elif name == "link":
-                data["link"] = (child.get("href") or child.text or "").strip()
+                       elif name == "link":
+                # Algunos feeds (RSS-Bridge) traen varios <link>: el del post y miniaturas (rel="enclosure").
+                # Solo nos interesa el del post, es decir, rel="alternate" (o sin rel).
+                if child.get("rel", "alternate") == "alternate" and not data["link"]:
+                    data["link"] = (child.get("href") or child.text or "").strip()
+        if not data["link"] and (data["id"] or "").startswith("http"):
+            data["link"] = data["id"]
         data["id"] = data["id"] or data["link"] or data["title"]
         if data["id"]:
             entries.append(data)
