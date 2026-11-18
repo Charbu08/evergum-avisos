@@ -101,6 +101,7 @@ def send_discord(webhook, feed, entry):
             }
         ],
     }
+    payload.pop("embeds", None)  # sin tarjeta propia: Discord muestra su vista previa del enlace
     body = json.dumps(payload).encode("utf-8")
     headers = {"Content-Type": "application/json", **UA}
     req = urllib.request.Request(webhook, data=body, headers=headers, method="POST")
