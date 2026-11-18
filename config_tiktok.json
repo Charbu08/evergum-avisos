@@ -4,17 +4,17 @@
     {
       "name": "Evergum Plus",
       "platform": "tiktok",
-      "url": "https://rss.app/feeds/cqN4sCXzHnVFUGr2.xml"
+      "url": "https://rss-bridge.org/bridge01/?action=display&bridge=TikTokBridge&context=By+user&username=evergum_08&format=Atom"
     },
     {
       "name": "Evergum Covers",
       "platform": "tiktok",
-      "url": "https://rss.app/feeds/thMqU5QqrPJ9zcRU.xml"
+      "url": "https://rss-bridge.org/bridge01/?action=display&bridge=TikTokBridge&context=By+user&username=evergum_08.covers&format=Atom"
     },
     {
       "name": "Evergum Rivals",
       "platform": "tiktok",
-      "url": "https://rss.app/feeds/7xzJ5qCQnvVADxcD.xml"
+      "url": "https://rss-bridge.org/bridge01/?action=display&bridge=TikTokBridge&context=By+user&username=evergum_08_rivals&format=Atom"
     }
   ]
 }
