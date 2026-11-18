@@ -57,7 +57,6 @@ def save_json(path, data):
 def strip_ns(tag):
     return tag.split("}", 1)[-1]
 
-
 def fetch_entries(url):
     """Devuelve lista de dicts {id, title, link} de un feed RSS o Atom."""
     req = urllib.request.Request(url, headers=UA)
@@ -75,7 +74,7 @@ def fetch_entries(url):
                 data["id"] = (child.text or "").strip()
             elif name == "title":
                 data["title"] = (child.text or "").strip()
-                       elif name == "link":
+            elif name == "link":
                 # Algunos feeds (RSS-Bridge) traen varios <link>: el del post y miniaturas (rel="enclosure").
                 # Solo nos interesa el del post, es decir, rel="alternate" (o sin rel).
                 if child.get("rel", "alternate") == "alternate" and not data["link"]:
@@ -86,6 +85,7 @@ def fetch_entries(url):
         if data["id"]:
             entries.append(data)
     return entries
+
 
 
 def send_discord(webhook, feed, entry):
